@@ -56,7 +56,7 @@ def extract_bit_plane(image_gray, bit_plane_number):
 
 # Extract the bit at the specified position for each pixel but passing a tuple as argument
 def tup_extract_bit_plane(info, image):
-    image_channel_index, bit_plane_number = info
+    bit_plane_number, image_channel_index = info
     return extract_bit_plane(image[image_channel_index], bit_plane_number)
 
 # Replace the specified bitplane with the new bitplane

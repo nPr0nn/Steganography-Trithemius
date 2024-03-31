@@ -19,20 +19,21 @@ def create_folder_if_not_exists(folder_path):
         os.makedirs(folder_path)
         print(f"Folder '{folder_path}' created successfully.")
 
-def generic_test(image_path, file_path, image_output_path, file_output_path, bit_planes):
-   
+def generic_test(test_id, image_path, file_path, image_output_path, file_output_path, bit_planes):
+  
+    print("\nRunning test: ", test_id)
+
     create_folder_if_not_exists(image_output_path)
     create_folder_if_not_exists(file_output_path)
 
     # Encoding
     start_time = time.time()
-    print("\nEncoding...")
+    print("Encoding...")
     image_output_path = encode.encode_file(image_path, file_path, bit_planes, image_output_path)
     print("Encoding time: %s seconds" % (time.time() - start_time)) 
     print("Image encoded and saved at: ", image_output_path)
 
     # Decoding
-    print("\n")
     print("Decoding...")
     start_time = time.time()
     file_output_path = decode.decode_file(image_output_path, file_output_path, bit_planes)
@@ -62,7 +63,7 @@ def test1():
     file_output_path  = "data/decoded_messages"
 
     # Compare original and decoded files
-    generic_test(image_path, file_path, image_output_path, file_output_path, bit_planes)
+    generic_test(1, image_path, file_path, image_output_path, file_output_path, bit_planes)
 
 #------------------------------------------------------------------------------
 
@@ -80,7 +81,7 @@ def test2():
     file_output_path  = "data/decoded_messages"
 
     # Compare original and decoded files
-    generic_test(image_path, file_path, image_output_path, file_output_path, bit_planes)
+    generic_test(2, image_path, file_path, image_output_path, file_output_path, bit_planes)
 
 #------------------------------------------------------------------------------
     
@@ -98,7 +99,7 @@ def test3():
     file_output_path  = "data/decoded_messages"
 
     # Compare original and decoded files
-    generic_test(image_path, file_path, image_output_path, file_output_path, bit_planes)
+    generic_test(3, image_path, file_path, image_output_path, file_output_path, bit_planes)
     
 #------------------------------------------------------------------------------
 
@@ -116,7 +117,7 @@ def test4():
     file_output_path  = "data/decoded_messages"
 
     # Compare original and decoded files
-    generic_test(image_path, file_path, image_output_path, file_output_path, bit_planes)
+    generic_test(4, image_path, file_path, image_output_path, file_output_path, bit_planes)
 
 #------------------------------------------------------------------------------
 
@@ -134,7 +135,7 @@ def test5():
     file_output_path  = "data/decoded_messages"
 
     # Compare original and decoded files
-    generic_test(image_path, file_path, image_output_path, file_output_path, bit_planes)
+    generic_test(5, image_path, file_path, image_output_path, file_output_path, bit_planes)
     
 #------------------------------------------------------------------------------
 
@@ -152,7 +153,7 @@ def test6():
     file_output_path  = "data/decoded_messages"
 
     # Compare original and decoded files
-    generic_test(image_path, file_path, image_output_path, file_output_path, bit_planes)
+    generic_test(6, image_path, file_path, image_output_path, file_output_path, bit_planes)
 
 #------------------------------------------------------------------------------
 
@@ -170,7 +171,7 @@ def test7():
     file_output_path  = "data/decoded_messages"
 
     # Compare original and decoded files
-    generic_test(image_path, file_path, image_output_path, file_output_path, bit_planes)
+    generic_test(7, image_path, file_path, image_output_path, file_output_path, bit_planes)
 
 #------------------------------------------------------------------------------
 
@@ -188,7 +189,7 @@ def test8():
     file_output_path  = "data/decoded_messages"
 
     # Compare original and decoded files
-    generic_test(image_path, file_path, image_output_path, file_output_path, bit_planes)
+    generic_test(8, image_path, file_path, image_output_path, file_output_path, bit_planes)
 
 #------------------------------------------------------------------------------
     
@@ -199,14 +200,14 @@ def test9():
     image_path        = "data/images/big.png"
     file_path         = "data/messages/rick_roll.mp4"
     image_output_path = "data/encoded_images"
-    bit_planes        = [0, 1, 2]
+    bit_planes        = [3, 1, 2]
     bit_planes        = list(dict.fromkeys(bit_planes))
 
     # Decoding variables
     file_output_path  = "data/decoded_messages"
 
     # Compare original and decoded files
-    generic_test(image_path, file_path, image_output_path, file_output_path, bit_planes)
+    generic_test(9, image_path, file_path, image_output_path, file_output_path, bit_planes)
  
     
 #------------------------------------------------------------------------------

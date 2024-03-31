@@ -32,16 +32,16 @@ def decode_file(image_path, output_path, bit_planes):
 # and returns the file bits
 def decode(encoded_img, bit_planes):    
     # Split image into color channels
-    color_channels = my_cv.extract_color_channels(encoded_img)
+    color_channels_array = my_cv.extract_color_channels(encoded_img)
 
     # Generate combination of color channels and bit planes to iterate
     # Cartesian product
-    color_channels_indices       = np.arange(len(color_channels)) 
+    color_channels_indices       = np.arange(len(color_channels_array)) 
     bit_plane_mesh, channel_mesh = np.meshgrid(bit_planes, color_channels_indices)
-    combinations   = np.stack((channel_mesh, bit_plane_mesh), axis=-1).flatten().reshape(-1, 2) 
+    combinations   = np.stack((bit_plane_mesh, channel_mesh), axis=-1).flatten().reshape(-1, 2) 
 
     # Extract bit planes
-    all_bit_planes = np.apply_along_axis(my_cv.tup_extract_bit_plane, axis=1, arr=combinations, image=color_channels)  
+    all_bit_planes = np.apply_along_axis(my_cv.tup_extract_bit_plane, axis=1, arr=combinations, image=color_channels_array)  
     all_bit_planes = all_bit_planes.flatten()
        
     # Use header to get file number of bits

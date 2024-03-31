@@ -13,12 +13,12 @@ def inspect_image(image_path, color_channels, bit_planes):
     # Generate combination of color channels and bit planes to iterate
     # Cartesian product
     color_channels_indices       = color_channels
-    bit_plane_mesh, channel_mesh = np.meshgrid(bit_planes, color_channels_indices)
-    combinations = np.stack((channel_mesh, bit_plane_mesh), axis=-1).flatten().reshape(-1, 2) 
+    bit_plane_mesh, channel_mesh = np.meshgrid(color_channels_indices, bit_planes)
+    combinations = np.stack((bit_plane_mesh, channel_mesh), axis=-1).flatten().reshape(-1, 2) 
 
     # Display image of bit planes
     for combination in combinations:
-        color_channel_index, bit_plane_number = combination
+        bit_plane_number, color_channel_index = combination
         color_channel = color_channels_array[color_channel_index]
       
         # If it's the first time displaying the color channel show it entirely

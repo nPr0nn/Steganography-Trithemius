@@ -54,14 +54,18 @@ def encode(img, file_bits, bit_planes):
 
     # Split image into color channels
     color_channels_array = my_cv.extract_color_channels(img) # np.array([r, g, b])
-    channel_index  = 0
-
+  
+    # Generate combination of color channels and bit planes to iterate
+    # Cartesian product
+    color_channels_indices       = np.arange(len(color_channels_array)) 
+    bit_plane_mesh, channel_mesh = np.meshgrid(bit_planes, color_channels_indices)
+    combinations   = np.stack((bit_plane_mesh, channel_mesh), axis=-1).flatten().reshape(-1, 2) 
+   
     # Encode the message
     for i in range(number_of_needed_buffers):
         # Get the correct bit plane number and color channel index combination
         # to encode the current buffer of file bits
-        bit_plane_number   = bit_planes[i % len(bit_planes)]
-        channel_index     += (i % len(bit_planes) == 0 and i != 0)
+        bit_plane_number, channel_index = combinations[i]
 
         # Get the correct color channel
         color_channel      = color_channels_array[channel_index] # grayscale channel
