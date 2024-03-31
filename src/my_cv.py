@@ -3,6 +3,8 @@
 # Computer Vision Module with additional functions #
 ####################################################
 
+# Works as a layer of abstraction between the OpenCV library and the rest of the code
+
 import cv2
 import numpy as np 
 

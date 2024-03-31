@@ -6,6 +6,7 @@ from src import encode
 from src import decode
 from src import inspect
 
+# Compare two binary files to see if they are equal
 def compare_binaries(file1, file2):
     with open(file1, 'rb') as f1, open(file2, 'rb') as f2:
         return f1.read() == f2.read()
@@ -200,6 +201,7 @@ def test9():
     
 #------------------------------------------------------------------------------
 
+# Run all unit tests
 def unit_tests():
     my_cli.start()
     print("\033[2;31;43m [WARNING] \033[0;0m")
