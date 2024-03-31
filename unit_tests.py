@@ -1,5 +1,6 @@
 
 import time 
+import os
 
 from src import my_cli
 from src import encode
@@ -13,7 +14,16 @@ def compare_binaries(file1, file2):
 
 #------------------------------------------------------------------------------
 
+def create_folder_if_not_exists(folder_path):
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+        print(f"Folder '{folder_path}' created successfully.")
+
 def generic_test(image_path, file_path, image_output_path, file_output_path, bit_planes):
+   
+    create_folder_if_not_exists(image_output_path)
+    create_folder_if_not_exists(file_output_path)
+
     # Encoding
     start_time = time.time()
     print("\nEncoding...")
