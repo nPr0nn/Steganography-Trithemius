@@ -1,7 +1,7 @@
 
 # Decoded and Encoded data 
 data/decoded_messages/*
-data/encoded_messages/*
+data/encoded_images/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
