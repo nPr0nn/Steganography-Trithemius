@@ -49,7 +49,7 @@ def user_input_for_encoding():
     bit_planes = None
     while(bit_planes == None): 
         print("\nWhich bit planes do you want to use to encode the message ? Order matters! (e.g 0 1 2): ", end='')
-        bit_planes = my_files_io.read_bounded_integer_list(0, 7, 8, input().strip()) 
+        bit_planes = my_files_io.read_bounded_integer_list(0, 2, input().strip()) 
     bit_planes = list(dict.fromkeys(bit_planes))
         
     return image_path, file_path, output_path, bit_planes
@@ -71,7 +71,7 @@ def user_input_for_decoding():
     bit_planes = None
     while(bit_planes == None): 
         print("\nWhich bit planes do you want to use to decode the message ? Order matters! (e.g 2 0 1): ", end='')
-        bit_planes = my_files_io.read_bounded_integer_list(0, 7, 8, input().strip()) 
+        bit_planes = my_files_io.read_bounded_integer_list(0, 2, input().strip()) 
     bit_planes = list(dict.fromkeys(bit_planes))
         
     return image_path, output_path, bit_planes
@@ -87,13 +87,13 @@ def user_input_for_inspecting():
     while(color_channels == None):
         print("\nAvailable color channels - 0: Red, 1: Green, 2: Blue") 
         print("Which color channels do you want to inspect ? (e.g 0 1 2): ", end='')
-        color_channels = my_files_io.read_bounded_integer_list(0, 2, 3, input().strip()) 
+        color_channels = my_files_io.read_bounded_integer_list(0, 2, input().strip()) 
     color_channels = list(dict.fromkeys(color_channels))
         
     bit_planes = None
     while(bit_planes == None): 
         print("\nWhich bit planes do you want to inspect ? (e.g 0 1 2): ", end='')
-        bit_planes = my_files_io.read_bounded_integer_list(0, 7, 8, input().strip()) 
+        bit_planes = my_files_io.read_bounded_integer_list(0, 7, input().strip()) 
     bit_planes = list(dict.fromkeys(bit_planes))
 
     return image_path, color_channels, bit_planes

@@ -19,6 +19,12 @@ def write_bytes_into_file(binary_data, file_size, extension, file_path):
         file.write(binary_data[:file_size])
     return file_path
 
+# Create folder if it doesn't exist
+def create_folder_if_not_exists(folder_path):
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+        print(f"Folder '{folder_path}' created successfully.")
+        
 #------------------------------------------------------------------------------------------------
 
 # Checks if the path exists and is a folder
@@ -91,21 +97,22 @@ def read_expected_int_input(user_input, expected_inputs):
         return None
 
 # Reads a list of integers ensuring values are between 0 and 7 inclusive.
-def read_bounded_integer_list(lower_bound, upper_bound, max_numbers, input):
-  try:
-    input_list = [int(x) for x in input.split()]
-    if len(input_list) == 0:
-        print(f"  \033[2;31;43m [ERROR] \033[0;0m Please enter at least one number.")
-        return None
-    if len(input_list) > max_numbers:
-        print(f"  \033[2;31;43m [ERROR] \033[0;0m Please enter at most " + str(max_numbers) + " numbers.")
-        return None
-    if all(lower_bound <= num <= upper_bound for num in input_list):
-        return input_list
-    else:
-        error_message = str(lower_bound) + " and " + str(upper_bound) + " inclusive."
-        print(f"  \033[2;31;43m [ERROR] \033[0;0m Numbers must be between " + error_message)
-        return None
-  except ValueError:
+def read_bounded_integer_list(lower_bound, upper_bound, input):
+    max_numbers = upper_bound - lower_bound + 1
+    try:
+        input_list = [int(x) for x in input.split()]
+        if len(input_list) == 0:
+            print(f"  \033[2;31;43m [ERROR] \033[0;0m Please enter at least one number.")
+            return None
+        if len(input_list) > max_numbers:
+            print(f"  \033[2;31;43m [ERROR] \033[0;0m Please enter at most " + str(max_numbers) + " numbers.")
+            return None
+        if all(lower_bound <= num <= upper_bound for num in input_list):
+            return input_list
+        else:
+            error_message = str(lower_bound) + " and " + str(upper_bound) + " inclusive."
+            print(f"  \033[2;31;43m [ERROR] \033[0;0m Numbers must be between " + error_message)
+            return None
+    except ValueError:
         print(f"  \033[2;31;43m [ERROR] \033[0;0m Please enter only integers separated by spaces.")
         return None

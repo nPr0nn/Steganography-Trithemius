@@ -39,6 +39,7 @@ def decode(encoded_img, bit_planes):
     color_channels_indices       = np.arange(len(color_channels_array)) 
     bit_plane_mesh, channel_mesh = np.meshgrid(bit_planes, color_channels_indices)
     combinations   = np.stack((bit_plane_mesh, channel_mesh), axis=-1).flatten().reshape(-1, 2) 
+    combinations = sorted(combinations, key=lambda x: bit_planes.index(x[0]))
 
     # Extract bit planes
     all_bit_planes = np.apply_along_axis(my_cv.tup_extract_bit_plane, axis=1, arr=combinations, image=color_channels_array)  

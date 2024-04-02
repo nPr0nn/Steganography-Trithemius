@@ -59,8 +59,9 @@ def encode(img, file_bits, bit_planes):
     # Cartesian product
     color_channels_indices       = np.arange(len(color_channels_array)) 
     bit_plane_mesh, channel_mesh = np.meshgrid(bit_planes, color_channels_indices)
-    combinations   = np.stack((bit_plane_mesh, channel_mesh), axis=-1).flatten().reshape(-1, 2) 
-   
+    combinations = np.stack((bit_plane_mesh, channel_mesh), axis=-1).flatten().reshape(-1, 2) 
+    combinations = sorted(combinations, key=lambda x: bit_planes.index(x[0]))
+ 
     # Encode the message
     for i in range(number_of_needed_buffers):
         # Get the correct bit plane number and color channel index combination

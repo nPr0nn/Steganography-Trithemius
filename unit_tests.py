@@ -1,7 +1,7 @@
 
 import time 
-import os
 
+from src import my_files_io
 from src import my_cli
 from src import encode
 from src import decode
@@ -14,17 +14,12 @@ def compare_binaries(file1, file2):
 
 #------------------------------------------------------------------------------
 
-def create_folder_if_not_exists(folder_path):
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path)
-        print(f"Folder '{folder_path}' created successfully.")
-
 def generic_test(test_id, image_path, file_path, image_output_path, file_output_path, bit_planes):
   
     print("\nRunning test: ", test_id)
 
-    create_folder_if_not_exists(image_output_path)
-    create_folder_if_not_exists(file_output_path)
+    my_files_io.create_folder_if_not_exists(image_output_path)
+    my_files_io.create_folder_if_not_exists(file_output_path)
 
     # Encoding
     start_time = time.time()
@@ -208,8 +203,25 @@ def test9():
 
     # Compare original and decoded files
     generic_test(9, image_path, file_path, image_output_path, file_output_path, bit_planes)
- 
+
+#------------------------------------------------------------------------------
     
+# Test zip encoded into big image
+
+def test10():
+    # Encoding variables
+    image_path        = "data/images/big.png"
+    file_path         = "data/messages/tcc.zip"
+    image_output_path = "data/encoded_images"
+    bit_planes        = [2, 4, 0]
+    bit_planes        = list(dict.fromkeys(bit_planes))
+
+    # Decoding variables
+    file_output_path  = "data/decoded_messages"
+
+    # Compare original and decoded files
+    generic_test(10, image_path, file_path, image_output_path, file_output_path, bit_planes)
+     
 #------------------------------------------------------------------------------
 
 # Run all unit tests
@@ -227,6 +239,7 @@ def unit_tests():
     test7()
     test8()
     test9()
+    test10()
     
     my_cli.end()
 
