@@ -58,15 +58,15 @@ The least significant bit (LSB) steganography in color images is a technique tha
 
 For example, if a pixel has an RGB value of (245, 33, 74), its binary representation will be:
 
-R: 11110101 
-G: 00100001
-B: 01001010  
+> R: 11110101 
+> G: 00100001
+> B: 01001010  
 
 The least significant bit belongs to bit plane 0, i.e., the first bit read from right to left, while the most significant bit belongs to bit plane 7. If we wish to hide the binary information represented by 101, we can alter the bit planes of our pixel so that its new value is as follows:
 
-R: 11110101
-G: 00100000
-B: 01001011
+> R: 11110101
+> G: 00100000
+> B: 01001011
 
 This translates to an RGB value of (245, 32, 75), an imperceptible color change to the human eye. With this idea, we can practically store arbitrary information in a large enough image, simply by choosing which bit planes to alter.
 
@@ -87,6 +87,7 @@ This translates to an RGB value of (245, 32, 75), an imperceptible color change 
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT](LICENSE) License
+
 Feel free to customize the sections, add more details, or include any additional information about your project.
 
