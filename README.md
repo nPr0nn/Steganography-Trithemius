@@ -70,8 +70,23 @@ B: 01001011
 
 This translates to an RGB value of (245, 32, 75), an imperceptible color change to the human eye. With this idea, we can practically store arbitrary information in a large enough image, simply by choosing which bit planes to alter.
 
-## Installation
+## Installation and Usage
 
 1. Clone the repository:
    ```sh
    git clone https://github.com/your-username/trithemius.py.git
+
+2. Install the dependencies:
+   ```sh
+   pip install opencv-python numpy
+   ```
+3. Run the application:
+   ```sh
+   python3 app.py
+   ```
+
+## License
+
+This project is licensed under the MIT License.
+Feel free to customize the sections, add more details, or include any additional information about your project.
+
