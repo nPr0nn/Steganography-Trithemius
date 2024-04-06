@@ -2,7 +2,7 @@
 #### <p align="center">Hide any type of files inside a PNG of your choice</p>
 
 <p align="center">
-  <img src="repo/Logo.jpg" alt="Logo" width="40%"/>
+  <img src="repo/logo.png" alt="Logo" width="40%"/>
 </p>
 
 <p align="center">
