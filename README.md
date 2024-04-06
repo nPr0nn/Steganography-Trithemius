@@ -20,11 +20,7 @@ Welcome to Trithemius.py, an Steganography tool to hide any type of file inside 
 
 | secret_message.txt | input_image.png | result_image.png |
 |-----------|-----------| -----------|
-| I am already far north of London, and as I walk in the streets of
-Petersburgh, I feel a cold northern breeze play upon my cheeks, which
-braces my nerves and fills me with delight. Do you understand this
-feeling? This breeze, which has travelled from the regions towards
-which...| ![img1](repo/monalisa.png) | ![img2](repo/encoded_monalisa.png) |
+| I am already far north of London, and as I walk in the streets of Petersburgh, I feel a cold northern breeze play upon my cheeks, which braces my nerves and fills me with delight. Do you understand this feeling?...| ![img1](repo/monalisa.png) | ![img2](repo/encoded_monalisa.png) |
 
 
 ## Code Structure
