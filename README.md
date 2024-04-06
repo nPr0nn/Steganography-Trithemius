@@ -88,6 +88,3 @@ This translates to an RGB value of (245, 32, 75), an imperceptible color change 
 ## License
 
 This project is licensed under the [MIT](LICENSE) License
-
-Feel free to customize the sections, add more details, or include any additional information about your project.
-
