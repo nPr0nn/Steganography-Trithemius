@@ -1,9 +1,9 @@
 
 #### <p align="center">Hide secret files inside a PNG of your choice without anyone noticing </p>
 
-<p align="center">
-  <img src="repo/logo.png" alt="Logo" width="32%"/>
-</p>
+<div align="center">
+  <img src="repo/logo.png" alt="logo" width="300"/>
+</div>
 
 <p align="center">
   <a href="LICENSE">
