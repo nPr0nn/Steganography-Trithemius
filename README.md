@@ -2,7 +2,7 @@
 #### <p align="center">Hide secret files inside a PNG of your choice without anyone noticing </p>
 
 <p align="center">
-  <img src="repo/logo.png" alt="Logo" width="30%"/>
+  <img src="repo/logo.png" alt="Logo" width="32%"/>
 </p>
 
 <p align="center">
